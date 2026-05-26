@@ -1,0 +1,6 @@
+{
+  "name": "Hospital Vida Sana",
+  "description": "Centro médico integral con guía inteligente de síntomas, agendamiento de citas, chat interactivo con IA y zona de relax.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
