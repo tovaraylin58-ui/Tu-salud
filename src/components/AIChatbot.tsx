@@ -1,23 +1,40 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ChatMessage } from "../types";
-import { MessageSquare, Send, X, Bot, ShieldCheck, HeartPulse, Loader2, Sparkles } from "lucide-react";
+import { MessageSquare, Send, X, Bot, ShieldCheck, HeartPulse, Loader2, Sparkles, RotateCcw } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 export default function AIChatbot() {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<ChatMessage[]>(() => {
-    return [
-      {
-        id: "greet",
-        sender: "bot",
-        text: "¡Hola! Soy Sofía, tu asistente médica virtual del Hospital Vida Sana. 😊\n\n¿En qué puedo ayudarte hoy? Puedes hacerme consultas sobre horarios, nuestras especialidades, o describir brevemente cómo te sientes para guiarte de forma segura.",
-        timestamp: new Date()
-      }
-    ];
-  });
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [inputText, setInputText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement | null>(null);
+
+  // Dynamic greeting based on current local time
+  const getGreeting = () => {
+    const hour = new Date().getHours();
+    let timeGreeting = "¡Hola!";
+    if (hour >= 6 && hour < 12) {
+      timeGreeting = "¡Buenos días!";
+    } else if (hour >= 12 && hour < 20) {
+      timeGreeting = "¡Buenas tardes!";
+    } else {
+      timeGreeting = "¡Buenas noches!";
+    }
+    return `${timeGreeting} Soy Sofía, tu asistente médica virtual del Hospital Vida Sana. 😊\n\n¿En qué puedo ayudarte hoy? Puedes describirme brevemente cómo te sientes o consultarme sobre horarios, especialidades o agendar un turno.`;
+  };
+
+  // Initialize greeting message
+  useEffect(() => {
+    setMessages([
+      {
+        id: "greet",
+        sender: "bot",
+        text: getGreeting(),
+        timestamp: new Date()
+      }
+    ]);
+  }, []);
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -74,6 +91,19 @@ export default function AIChatbot() {
     }
   };
 
+  const handleClearChat = () => {
+    if (window.confirm("¿Deseas reiniciar la conversación con Sofía?")) {
+      setMessages([
+        {
+          id: "greet",
+          sender: "bot",
+          text: getGreeting(),
+          timestamp: new Date()
+        }
+      ]);
+    }
+  };
+
   const handleQuickQuestion = (question: string) => {
     handleSendMessage(question);
   };
@@ -114,7 +144,17 @@ export default function AIChatbot() {
                   </span>
                 </div>
               </div>
-              <Sparkles className="w-5 h-5 text-amber-300" />
+              
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={handleClearChat}
+                  title="Reiniciar chat"
+                  className="p-1.5 hover:bg-emerald-700 rounded-lg text-emerald-100 hover:text-white transition-colors cursor-pointer"
+                >
+                  <RotateCcw className="w-4 h-4" />
+                </button>
+                <Sparkles className="w-4.5 h-4.5 text-amber-300" />
+              </div>
             </div>
 
             {/* Scroll Area Messages Board */}
@@ -129,13 +169,57 @@ export default function AIChatbot() {
                   className={`flex ${m.sender === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
-                    className={`max-w-[85%] text-xs rounded-2xl p-3.5 space-y-1 ${
+                    className={`max-w-[85%] text-xs rounded-2xl p-3.5 space-y-1.5 ${
                       m.sender === "user"
                         ? "bg-emerald-600 text-white rounded-br-none"
                         : "bg-white text-slate-700 rounded-bl-none border border-slate-100 shadow-sm"
                     }`}
                   >
                     <p className="whitespace-pre-wrap leading-relaxed">{m.text}</p>
+                    
+                    {/* Interactive CTAs linking bot advice directly to website tools */}
+                    {m.sender === "bot" && (m.text.toLowerCase().includes("cita") || m.text.toLowerCase().includes("agendar") || m.text.toLowerCase().includes("turno")) && (
+                      <button
+                        onClick={() => {
+                          const element = document.getElementById("citas");
+                          if (element) {
+                            element.scrollIntoView({ behavior: "smooth" });
+                          }
+                        }}
+                        className="mt-2.5 w-full py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold rounded-xl border border-emerald-100 transition-all active:scale-95 flex items-center justify-center gap-1 cursor-pointer text-[10px] uppercase tracking-wider"
+                      >
+                        🎯 Agendar en el Formulario
+                      </button>
+                    )}
+
+                    {m.sender === "bot" && (m.text.toLowerCase().includes("sintoma") || m.text.toLowerCase().includes("síntoma") || m.text.toLowerCase().includes("dolor") || m.text.toLowerCase().includes("molestia")) && !m.text.toLowerCase().includes("agenda") && (
+                      <button
+                        onClick={() => {
+                          const element = document.getElementById("sintomas");
+                          if (element) {
+                            element.scrollIntoView({ behavior: "smooth" });
+                          }
+                        }}
+                        className="mt-2 w-full py-2 bg-sky-50 hover:bg-sky-100 text-sky-800 font-bold rounded-xl border border-sky-100 transition-all active:scale-95 flex items-center justify-center gap-1 cursor-pointer text-[10px] uppercase tracking-wider"
+                      >
+                        🧠 Ver la Guía de Síntomas
+                      </button>
+                    )}
+
+                    {m.sender === "bot" && (m.text.toLowerCase().includes("juego") || m.text.toLowerCase().includes("relax") || m.text.toLowerCase().includes("bacterias")) && (
+                      <button
+                        onClick={() => {
+                          const element = document.getElementById("juego");
+                          if (element) {
+                            element.scrollIntoView({ behavior: "smooth" });
+                          }
+                        }}
+                        className="mt-2 w-full py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold rounded-xl border border-amber-100 transition-all active:scale-95 flex items-center justify-center gap-1 cursor-pointer text-[10px] uppercase tracking-wider"
+                      >
+                        👾 Ir a Zona de Pausa Activa
+                      </button>
+                    )}
+
                     <span className={`text-[9px] block text-right font-medium opacity-60 mt-1`}>
                       {m.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                     </span>

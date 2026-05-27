@@ -65,6 +65,49 @@ export const specialtiesData: Specialty[] = [
     doctorList: [
       { name: "Dr. Gabriel Dientes", specialty: "Odontología General y Prótesis", schedule: "Lunes a Viernes 9:00 AM - 5:00 PM", avatar: "👨‍⚕️" }
     ]
+  },
+  {
+    id: "gineco",
+    title: "Ginecología y Obstetricia",
+    icon: "🤰",
+    description: "Cuidado integral de la salud femenina en todas las etapas de la vida, obstetricia de precisión, control prenatal detallado, partos humanizados y prevención ginecológica.",
+    location: "Segundo Piso, Pabellón Materno-Infantil, Consultorio 204",
+    doctorList: [
+      { name: "Dra. Carolina Materna", specialty: "Ginecología Obstétrica", schedule: "Lunes a Jueves 8:00 AM - 1:00 PM", avatar: "👩‍⚕️" },
+      { name: "Dr. José Útero", specialty: "Medicina Materno-Fetal", schedule: "Martes y Viernes 2:00 PM - 6:00 PM", avatar: "👨‍⚕️" }
+    ]
+  },
+  {
+    id: "oftalmo",
+    title: "Oftalmología",
+    icon: "👁️",
+    description: "Diagnóstico precoz y cirugía ocular de vanguardia. Tratamiento especializado para astigmatismo, miopía, glaucoma, estrabismo pediátrico y prevención ocular.",
+    location: "Primer Piso, Ala Oeste, Unidad de Oftalmología",
+    doctorList: [
+      { name: "Dr. Sebastián Vista", specialty: "Cirugía Refractiva y Córnea", schedule: "Lunes a Viernes 9:00 AM - 3:00 PM", avatar: "👨‍⚕️" },
+      { name: "Dra. Lucía Retina", specialty: "Oftalmología Pediátrica", schedule: "Miércoles y Sábado 9:00 AM - 1:00 PM", avatar: "👩‍⚕️" }
+    ]
+  },
+  {
+    id: "traumato",
+    title: "Traumatología y Ortopedia",
+    icon: "🦴",
+    description: "Rehabilitación y cirugía ortopédica para afecciones articulares, columna vertebral y fracturas sufridas en deportes o accidentes, empleando técnicas mínimamente invasivas.",
+    location: "Planta Baja, Pabellón Ortopédico, Consultorio 012",
+    doctorList: [
+      { name: "Dr. Fernando Hueso", specialty: "Artroscopia de Hombro y Rodilla", schedule: "Lunes, Miércoles y Viernes 10:00 AM - 5:00 PM", avatar: "👨‍⚕️" },
+      { name: "Dra. Jimena Columna", specialty: "Traumatología y Patología Espinal", schedule: "Martes y Jueves 2:00 PM - 7:00 PM", avatar: "👩‍⚕️" }
+    ]
+  },
+  {
+    id: "nutricion",
+    title: "Nutrición y Dietética",
+    icon: "🥗",
+    description: "Consultas personalizadas para reeducación alimentaria, nutrición deportiva, control calórico integral, diabetes gestacional y formulación de planes basados en evidencia científica.",
+    location: "Tercer Piso, Centro de Nutrición y Vida Saludable",
+    doctorList: [
+      { name: "Dra. Camila Sana", specialty: "Nutrición Clínica y Salud Metabólica", schedule: "Lunes a Viernes 8:00 AM - 4:00 PM", avatar: "👩‍⚕️" }
+    ]
   }
 ];
 
@@ -168,5 +211,44 @@ export const baselineSymptoms: Symptom[] = [
     ],
     severity: "low",
     department: "Dermatología"
+  },
+  {
+    id: "eye-strain",
+    name: "Fatiga o Dolor Ocular",
+    emoji: "👁️",
+    description: "Visión borrosa repentina, ardor o sequedad ocular con dolor sordo, a menudo acompañado de sensibilidad de luz tras esfuerzo visual prolongado.",
+    causes: [
+      "Sobreexposición a pantallas digitales de luz azul sin descanso",
+      "Iluminación inadecuada del espacio de trabajo",
+      "Fórmula de graduación desactualizada en anteojos",
+      "Ojo seco crónico o inflamación de párpados"
+    ],
+    recommendations: [
+      "Practica la regla 20-20-20: mira a un objeto a 6 metros de distancia por 20 segundos cada 20 minutos.",
+      "Usa lágrimas artificiales lubricantes si sientes sequedad.",
+      "Modera la luz ambiental y ajusta el brillo de tus pantallas.",
+      "Evita frotar tus ojos con fuerza."
+    ],
+    severity: "low",
+    department: "Oftalmología"
+  },
+  {
+    id: "sprain",
+    name: "Dolor en Articulaciones o Huesos",
+    emoji: "骨",
+    description: "Inflamación, imposibilidad de apoyar peso o movilidad disminuida por un golpe severo, torcedura o sobreesfuerzo articular.",
+    causes: [
+      "Traumatología o torceduras en ligamentos (esguince)",
+      "Sobrecarga o fatiga muscular severa",
+      "Procesos degenerativos (artrosis o artritis en etapas activas)",
+      "Fisura u otras lesiones óseas"
+    ],
+    recommendations: [
+      "Aplica la regla RICE: Reposo absoluto, Hielo indirecto, Compresión con vendaje elástico sutil y Elevación de la extremidad.",
+      "Evita pisar o forzar la articulación afectada.",
+      "Registra si hay hematoma visible o deformidad."
+    ],
+    severity: "medium",
+    department: "Traumatología y Ortopedia"
   }
 ];

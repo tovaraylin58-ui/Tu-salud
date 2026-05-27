@@ -32,31 +32,44 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-8">
             <button
               onClick={() => handleScroll("inicio")}
-              className="text-slate-600 hover:text-emerald-600 font-medium transition-colors"
+              className="text-slate-600 hover:text-emerald-500 font-bold transition-colors cursor-pointer"
             >
               Inicio
             </button>
             <button
               onClick={() => handleScroll("sintomas")}
-              className="text-slate-600 hover:text-emerald-600 font-medium transition-colors"
+              className="text-slate-600 hover:text-emerald-500 font-bold transition-colors cursor-pointer"
             >
               Guía de Síntomas
             </button>
             <button
+              onClick={() => handleScroll("doctor-interactivo")}
+              className="px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-700 font-black flex items-center gap-1.5 border border-emerald-200/50 hover:bg-emerald-100/80 hover:text-emerald-800 transition-all cursor-pointer text-xs"
+            >
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              Dr. Mateo
+            </button>
+            <button
               onClick={() => handleScroll("servicios")}
-              className="text-slate-600 hover:text-emerald-600 font-medium transition-colors"
+              className="text-slate-600 hover:text-emerald-500 font-bold transition-colors cursor-pointer"
             >
               Especialidades
             </button>
             <button
               onClick={() => handleScroll("juego")}
-              className="text-slate-600 hover:text-emerald-600 font-medium transition-colors"
+              className="text-slate-600 hover:text-emerald-500 font-bold transition-colors cursor-pointer"
             >
               Pausa Saludable
             </button>
             <button
+              onClick={() => handleScroll("primeros-auxilios")}
+              className="px-3 py-1.5 rounded-full bg-red-50 text-red-600 font-black flex items-center gap-1 border border-red-200 hover:bg-red-100 transition-all cursor-pointer text-xs"
+            >
+              🚨 S.O.S Auxilios
+            </button>
+            <button
               onClick={() => handleScroll("citas")}
-              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-700 active:scale-95 shadow-md shadow-emerald-600/10 transition-all cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-6 py-3 rounded-full text-sm font-black text-white bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 active:scale-95 shadow-lg shadow-emerald-500/20 transition-all cursor-pointer"
             >
               <Calendar className="w-4 h-4" />
               Agendar Cita
@@ -91,6 +104,13 @@ export default function Navbar() {
             Guía de Síntomas
           </button>
           <button
+            onClick={() => handleScroll("doctor-interactivo")}
+            className="block w-full text-left px-3 py-2 rounded-lg text-emerald-800 bg-emerald-50 hover:bg-emerald-100 font-extrabold transition-colors flex items-center justify-between"
+          >
+            <span>👨‍⚕️ Preguntas al Dr. Mateo</span>
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          </button>
+          <button
             onClick={() => handleScroll("servicios")}
             className="block w-full text-left px-3 py-2 rounded-lg text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 font-medium transition-colors"
           >
@@ -103,8 +123,15 @@ export default function Navbar() {
             Pausa Saludable
           </button>
           <button
+            onClick={() => handleScroll("primeros-auxilios")}
+            className="block w-full text-left px-3 py-2 rounded-lg text-red-700 bg-red-50 hover:bg-red-100 font-extrabold transition-colors flex items-center justify-between"
+          >
+            <span>🚨 S.O.S Primeros Auxilios</span>
+            <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></span>
+          </button>
+          <button
             onClick={() => handleScroll("citas")}
-            className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl text-center text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-700 shadow-md transition-all cursor-pointer"
+            className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl text-center text-sm font-semibold text-white bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 shadow-md transition-all cursor-pointer"
           >
             <Calendar className="w-4 h-4" />
             Agendar Cita

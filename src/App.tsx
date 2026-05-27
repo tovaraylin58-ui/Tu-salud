@@ -1,6 +1,8 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import SymptomGuide from "./components/SymptomGuide";
+import FirstAid from "./components/FirstAid";
+import DoctorAssistant from "./components/DoctorAssistant";
 import Specialties from "./components/Specialties";
 import RelaxGame from "./components/RelaxGame";
 import AppointmentForm from "./components/AppointmentForm";
@@ -21,8 +23,8 @@ export default function App() {
       {/* Top Header */}
       <Navbar />
 
-      {/* Hero Section */}
-      <header id="inicio" className="relative py-24 md:py-32 bg-gradient-to-br from-emerald-50/15 via-white to-sky-50/30 overflow-hidden border-b border-slate-100">
+      {/* Hero Section with Vibrant Colors */}
+      <header id="inicio" className="relative py-24 md:py-32 bg-gradient-to-br from-emerald-500/10 via-white to-cyan-400/20 overflow-hidden border-b border-slate-100">
         
         {/* Abstract SVG Background grid design */}
         <div className="absolute inset-0 z-0 opacity-40">
@@ -45,9 +47,9 @@ export default function App() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4 }}
-                className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-50 text-emerald-800 text-xs font-bold uppercase tracking-wider rounded-full border border-emerald-100"
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-xs font-black uppercase tracking-widest rounded-full shadow-lg shadow-emerald-500/20"
               >
-                <Sparkles className="w-4 h-4 text-emerald-600" />
+                <Sparkles className="w-4 h-4 text-amber-300 animate-spin" style={{ animationDuration: '6s' }} />
                 <span>Atención Médica de Vanguardia</span>
               </motion.div>
 
@@ -58,12 +60,13 @@ export default function App() {
                 className="space-y-4"
               >
                 <h1 className="text-4xl sm:text-5xl md:text-5.5xl font-black text-slate-800 tracking-tight leading-tight">
-                  Cuidamos lo que más importa: <span className="text-emerald-600 block sm:inline">Tu Salud</span>
+                  Cuidamos lo que más importa: <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-cyan-600 block sm:inline">Tu Salud</span>
                 </h1>
                 <p className="max-w-xl mx-auto lg:mx-0 text-slate-500 text-md sm:text-lg leading-relaxed">
-                  Atención médica de nivel internacional con un equipo de profesionales altamente comprometido. Consulta nuestra guía interactiva de síntomas o agenda tu turno en segundos.
+                  Atención médica de nivel internacional con un equipo de profesionales altamente comprometido. Consulta nuestra guía interactiva de síntomas, aclara dudas con el Doctor Virtual, o agenda tu turno en segundos.
                 </p>
               </motion.div>
+
 
               {/* CTAs */}
               <motion.div
@@ -159,6 +162,12 @@ export default function App() {
       <main>
         {/* Symptom Checker interactive Area */}
         <SymptomGuide />
+
+        {/* First Aid Manual & Interactive Simulator */}
+        <FirstAid />
+
+        {/* Doctor Assistant interactive Animated Companion */}
+        <DoctorAssistant />
 
         {/* Specialities and Departments */}
         <Specialties />
