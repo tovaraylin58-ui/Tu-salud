@@ -62,6 +62,12 @@ export default function Navbar() {
               Pausa Saludable
             </button>
             <button
+              onClick={() => handleScroll("cardiograma")}
+              className="px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 font-black flex items-center gap-1 border border-slate-250 hover:bg-slate-205 transition-all cursor-pointer text-xs"
+            >
+              ❤️ Monitor JS
+            </button>
+            <button
               onClick={() => handleScroll("primeros-auxilios")}
               className="px-3 py-1.5 rounded-full bg-red-50 text-red-600 font-black flex items-center gap-1 border border-red-200 hover:bg-red-100 transition-all cursor-pointer text-xs"
             >
@@ -121,6 +127,12 @@ export default function Navbar() {
             className="block w-full text-left px-3 py-2 rounded-lg text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 font-medium transition-colors"
           >
             Pausa Saludable
+          </button>
+          <button
+            onClick={() => handleScroll("cardiograma")}
+            className="block w-full text-left px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-100 font-bold transition-colors"
+          >
+            ❤️ Monitor Cardíaco (Animación JS)
           </button>
           <button
             onClick={() => handleScroll("primeros-auxilios")}

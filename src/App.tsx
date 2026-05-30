@@ -2,11 +2,13 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import SymptomGuide from "./components/SymptomGuide";
 import FirstAid from "./components/FirstAid";
+import CardioVisualizer from "./components/CardioVisualizer";
 import DoctorAssistant from "./components/DoctorAssistant";
 import Specialties from "./components/Specialties";
 import RelaxGame from "./components/RelaxGame";
 import AppointmentForm from "./components/AppointmentForm";
 import AIChatbot from "./components/AIChatbot";
+import PageAnimationsController from "./components/PageAnimationsController";
 import { ArrowRight, ShieldCheck, HeartPulse, Sparkles, Activity, Clock } from "lucide-react";
 import { motion } from "motion/react";
 
@@ -20,6 +22,9 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-700 selection:bg-emerald-100 selection:text-emerald-900 scroll-behavior-smooth">
+      {/* Dynamic JS Page Level Animation Controller */}
+      <PageAnimationsController />
+
       {/* Top Header */}
       <Navbar />
 
@@ -165,6 +170,9 @@ export default function App() {
 
         {/* First Aid Manual & Interactive Simulator */}
         <FirstAid />
+
+        {/* Dynamic JS Cardio-pulse Visualizer */}
+        <CardioVisualizer />
 
         {/* Doctor Assistant interactive Animated Companion */}
         <DoctorAssistant />
